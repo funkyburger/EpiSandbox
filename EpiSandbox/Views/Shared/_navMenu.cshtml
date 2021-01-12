@@ -1,6 +1,6 @@
 ﻿@model EpiSandbox.Models.View.NavMenu
 
-<div>
+<div class="navMenu">
     <ol>
         @foreach (var item in Model.HeadItems)
         {
@@ -8,11 +8,13 @@
         }
     </ol>
 </div>
-<div>
+<div class="navMenu">
     <ol>
         @foreach (var item in Model.SubItems)
         {
             <li><a href="@item.Link">@item.Label</a></li>
         }
     </ol>
+</div>
+<div class="lineBreak">
 </div>
