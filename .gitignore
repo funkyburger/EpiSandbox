@@ -3,5 +3,6 @@
 ######################
 *License.config
 /EpiSandbox/bin
+/EpiSandbox/obj
 /packages
 /.vs
