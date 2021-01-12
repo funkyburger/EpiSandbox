@@ -1,0 +1,18 @@
+﻿@model EpiSandbox.Models.View.NavMenu
+
+<div>
+    <ol>
+        @foreach (var item in Model.HeadItems)
+        {
+            <li><a href="@item.Link">@item.Label</a></li>
+        }
+    </ol>
+</div>
+<div>
+    <ol>
+        @foreach (var item in Model.SubItems)
+        {
+            <li><a href="@item.Link">@item.Label</a></li>
+        }
+    </ol>
+</div>
