@@ -4,5 +4,6 @@
 *License.config
 /EpiSandbox/bin
 /EpiSandbox/obj
+/EpiSandbox/EpiSandbox.csproj.user
 /packages
 /.vs
