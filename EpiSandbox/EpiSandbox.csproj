@@ -220,6 +220,7 @@
     <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Data\RoleCreator.cs" />
     <Compile Include="Data\UserCreator.cs" />
+    <Compile Include="DependencyInjectionModule.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -227,6 +228,7 @@
     <Compile Include="Models\Pages\HomePage.cs" />
     <Compile Include="Models\Pages\NodePage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServiceLocatorDependencyResolver.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Business\" />
