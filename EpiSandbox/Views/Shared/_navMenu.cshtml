@@ -11,6 +11,10 @@
             {
                 <div class="col-sm link-item"><a href="@item.Link">@item.Label</a></div>
             }
+
+            <div class="col-sm link-item">
+                @{ Html.RenderPartial("_login"); }
+            </div>
         </div>
         @if(Model.SubItems.Any()) {
             <div class="row nav-menu-row">

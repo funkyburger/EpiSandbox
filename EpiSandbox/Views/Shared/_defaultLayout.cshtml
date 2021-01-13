@@ -1,12 +1,16 @@
-﻿<!DOCTYPE html>
+﻿@using System.Web.Optimization; 
+
+<!DOCTYPE html>
 <html>
 <head>
     <title>title</title>
     @RenderSection("head", required: false)
     @*<link rel="stylesheet" href="~/Content/Css/default.css?rnd=@DateTime.Now.Ticks">*@
     <link rel="stylesheet" href="~/Content/Theme/Cogip/cogip.css?rnd=@DateTime.Now.Ticks">
-    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
-    <link rel="stylesheet" href="~/Content/bootstrap-grid.min.css">
+    @*<link rel="stylesheet" href="~/Content/bootstrap.min.css">
+        <link rel="stylesheet" href="~/Content/bootstrap-grid.min.css">*@
+    @Styles.Render("~/css")
+    @Scripts.Render("~/script")
 </head>
 <body>
     <div>
