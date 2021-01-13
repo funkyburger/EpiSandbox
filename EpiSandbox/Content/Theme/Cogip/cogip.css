@@ -1,6 +1,15 @@
 ﻿body {
 }
 
+/*.page {
+    display: table;
+    width: 100%;
+}
+
+.page-content {
+    display: table-cell;
+}*/
+
 .nav-menu {
     background-color: darkgray;
 }

@@ -2,9 +2,6 @@
 
 <div class="nav-menu">
     <div class="container">
-        <!--<div--> @*class="navMenu"*@ <!--class="row">-->
-        @*<div class="logo"></div>*@
-
         <div class="row nav-menu-row">
             <div class="col-sm">
                 <a href="/"><img src="~/Content/Theme/Cogip/logo.png" /></a>
@@ -15,18 +12,14 @@
                 <div class="col-sm link-item"><a href="@item.Link">@item.Label</a></div>
             }
         </div>
-        @*</div>*@
-        <div class="row nav-menu-row">
-            @foreach (var item in Model.SubItems)
-            {
-                <div class="col-sm link-item"><a href="@item.Link">@item.Label</a></div>
-            }
-        </div>
+        @if(Model.SubItems.Any()) {
+            <div class="row nav-menu-row">
+                @foreach (var item in Model.SubItems)
+                {
+                    <div class="col-sm link-item"><a href="@item.Link">@item.Label</a></div>
+                }
+            </div>
+        }
+
     </div>
 </div>
-
-
-
-
-@*<div class="lineBreak">
-</div>*@
