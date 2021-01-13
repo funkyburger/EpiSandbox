@@ -7,7 +7,7 @@ using EPiServer.Framework.Initialization;
 using System;
 using System.Linq;
 
-namespace EpiSandbox
+namespace EpiSandbox.Initialization
 {
     [InitializableModule]
     [ModuleDependency(typeof(EPiServer.Web.InitializationModule))]

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace EpiSandbox
+namespace EpiSandbox.Initialization
 {
     public class ServiceLocatorDependencyResolver : IDependencyResolver
     {

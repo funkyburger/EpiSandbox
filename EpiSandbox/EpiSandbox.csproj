@@ -219,14 +219,14 @@
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
-    <Compile Include="BaseDataInitialization.cs" />
+    <Compile Include="Initialization\BaseDataInitialization.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
     <Compile Include="Controllers\NavMenuController.cs" />
     <Compile Include="Controllers\NodePageController.cs" />
     <Compile Include="Data\RoleCreator.cs" />
     <Compile Include="Data\UserCreator.cs" />
-    <Compile Include="DependencyInjectionModule.cs" />
+    <Compile Include="Initialization\DependencyInjectionModule.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -236,7 +236,7 @@
     <Compile Include="Models\View\NavMenu.cs" />
     <Compile Include="Models\View\NavMenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceLocatorDependencyResolver.cs" />
+    <Compile Include="Initialization\ServiceLocatorDependencyResolver.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Business\" />
