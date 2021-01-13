@@ -1,0 +1,15 @@
+﻿body {
+}
+
+.nav-menu {
+    background-color: darkgray;
+}
+
+.nav-menu-row {
+    height: 50px;
+}
+
+.link-item {
+    margin-top: auto;
+    margin-bottom: auto;
+}

@@ -3,7 +3,10 @@
 <head>
     <title>title</title>
     @RenderSection("head", required: false)
-    <link rel="stylesheet" href="~/Content/Css/default.css?rnd=@DateTime.Now.Ticks">
+    @*<link rel="stylesheet" href="~/Content/Css/default.css?rnd=@DateTime.Now.Ticks">*@
+    <link rel="stylesheet" href="~/Content/Theme/Cogip/cogip.css?rnd=@DateTime.Now.Ticks">
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+    <link rel="stylesheet" href="~/Content/bootstrap-grid.min.css">
 </head>
 <body>
     <div>

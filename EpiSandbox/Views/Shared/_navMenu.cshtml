@@ -1,20 +1,32 @@
 ﻿@model EpiSandbox.Models.View.NavMenu
 
-<div class="navMenu">
-    <ol>
-        @foreach (var item in Model.HeadItems)
-        {
-            <li><a href="@item.Link">@item.Label</a></li>
-        }
-    </ol>
+<div class="nav-menu">
+    <div class="container">
+        <!--<div--> @*class="navMenu"*@ <!--class="row">-->
+        @*<div class="logo"></div>*@
+
+        <div class="row nav-menu-row">
+            <div class="col-sm">
+                <a href="/"><img src="~/Content/Theme/Cogip/logo.png" /></a>
+            </div>
+
+            @foreach (var item in Model.HeadItems)
+            {
+                <div class="col-sm link-item"><a href="@item.Link">@item.Label</a></div>
+            }
+        </div>
+        @*</div>*@
+        <div class="row nav-menu-row">
+            @foreach (var item in Model.SubItems)
+            {
+                <div class="col-sm link-item"><a href="@item.Link">@item.Label</a></div>
+            }
+        </div>
+    </div>
 </div>
-<div class="navMenu">
-    <ol>
-        @foreach (var item in Model.SubItems)
-        {
-            <li><a href="@item.Link">@item.Label</a></li>
-        }
-    </ol>
-</div>
-<div class="lineBreak">
-</div>
+
+
+
+
+@*<div class="lineBreak">
+</div>*@
