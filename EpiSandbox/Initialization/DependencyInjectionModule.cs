@@ -5,7 +5,7 @@ using System;
 using System.Linq;
 using System.Web.Mvc;
 
-namespace EpiSandbox
+namespace EpiSandbox.Initialization
 {
     [InitializableModule]
     public class DependencyInjectionModule : IConfigurableModule
