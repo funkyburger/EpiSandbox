@@ -3,8 +3,15 @@
 <head>
     <title>title</title>
     @RenderSection("head", required: false)
+    <link rel="stylesheet" href="~/Content/Css/default.css?rnd=@DateTime.Now.Ticks">
 </head>
 <body>
-    @RenderBody()
+    <div>
+        @{ Html.RenderAction("Index", "NavMenu"); }
+    </div>
+
+    <div class="mainBody">
+        @RenderBody()
+    </div>
 </body>
 </html>

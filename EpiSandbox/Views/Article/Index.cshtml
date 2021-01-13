@@ -1,0 +1,11 @@
+﻿@using EPiServer.Core
+@using EPiServer.Web.Mvc.Html
+
+@model EpiSandbox.Models.Pages.Article
+@{ Layout = "~/Views/Shared/_defaultLayout.cshtml"; }
+
+<h2>@Html.PropertyFor(m => m.Heading)</h2>
+<div>
+    @Html.PropertyFor(m => m.MainBody)
+</div>
+
