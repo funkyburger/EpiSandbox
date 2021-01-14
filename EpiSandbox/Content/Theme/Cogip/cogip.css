@@ -29,3 +29,13 @@
     margin-left: 20px;
     margin-right: 20px;
 }
+
+.default-element {
+    height: 50px;
+}
+
+.error-message {
+    display: none;
+    color: red;
+    font-style: italic;
+}

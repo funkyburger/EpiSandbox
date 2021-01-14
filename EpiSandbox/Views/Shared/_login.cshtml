@@ -5,6 +5,8 @@
     </div>
 </div>
 
+@Html.AntiForgeryToken()
+
 <!-- Modals -->
 <div id="signinModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
@@ -14,8 +16,12 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-
-                <p>Some text in the modal.</p>
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-4">titi</div>
+                        <div class="col-md-4">toto</div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -29,8 +35,21 @@
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
             </div>
             <div class="modal-body">
-
-                <p>Some text in the modal.</p>
+                <div class="row">
+                    <div class="col-md-4 default-element">Login:</div>
+                    <div class="col-md-4 default-element"><input id="tbLoginLogin" type="text" /></div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 default-element">Password:</div>
+                    <div class="col-md-4 default-element"><input id="tbLoginPassword" type="password" /></div>
+                </div>
+                <div class="row">
+                    <div id="loginErrorMessage" class="col-md-4 default-element error-message">An error occured</div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 default-element"></div>
+                    <div class="col-md-4 default-element"><input id="tbLoginButton" type="button" value="Log in" onclick="tryLogin(); return false;"/></div>
+                </div>
             </div>
         </div>
     </div>

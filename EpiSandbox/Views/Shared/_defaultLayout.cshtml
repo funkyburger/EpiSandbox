@@ -5,12 +5,14 @@
 <head>
     <title>title</title>
     @RenderSection("head", required: false)
-    @*<link rel="stylesheet" href="~/Content/Css/default.css?rnd=@DateTime.Now.Ticks">*@
+
     <link rel="stylesheet" href="~/Content/Theme/Cogip/cogip.css?rnd=@DateTime.Now.Ticks">
-    @*<link rel="stylesheet" href="~/Content/bootstrap.min.css">
-        <link rel="stylesheet" href="~/Content/bootstrap-grid.min.css">*@
+
     @Styles.Render("~/css")
     @Scripts.Render("~/script")
+
+    @* TODO : remove *@
+    <script type="text/javascript" src="~/Scripts/episandbox.js?rnd=@DateTime.Now.Ticks"></script>
 </head>
 <body>
     <div>
