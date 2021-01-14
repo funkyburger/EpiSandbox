@@ -50,3 +50,13 @@ function trySignIn() {
             $('#signinErrorMessage').show();
         });
 }
+
+function logoff() {
+    console.log('logoff()');
+
+    $.post("/logoff", function (response) {
+    })
+        .always(function () {
+            location.reload(true);
+        });
+}

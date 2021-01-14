@@ -13,7 +13,8 @@
             }
 
             <div class="col-sm link-item">
-                @{ Html.RenderPartial("_login"); }
+                @*@{ Html.RenderPartial("_login"); }*@
+                @{ Html.RenderAction("Index", "Login"); }
             </div>
         </div>
         @if(Model.SubItems.Any()) {

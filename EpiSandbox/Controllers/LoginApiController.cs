@@ -23,5 +23,13 @@ namespace EpiSandbox.Controllers
 
             return new { success = false, message = "Login failed for given login/password" };
         }
+
+        [System.Web.Http.Route("logoff")]
+        [ValidateAntiForgeryToken]
+        public object Logoff([FromBody] LoginModel loginModel)
+        {
+            FormsAuthentication.SignOut();
+            return new { success = false, message = "" };
+        }
     }
 }
