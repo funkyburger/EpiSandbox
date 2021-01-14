@@ -1,31 +1,14 @@
-﻿using EPiServer.Framework;
-using EPiServer.Framework.Initialization;
-using System;
+﻿using System;
 using System.Linq;
-using System.Configuration.Provider;
 using System.Web.Security;
-using EPiServer.Logging.Compatibility;
-//using Microsoft.AspNet.Identity.EntityFramework;
-//using Fluent.Infrastructure.FluentModel;
-//using System.Configuration.Provider;
-//using System.Web.Security;
-//using EPiServer.Framework;
-//using EPiServer.Framework.Initialization;
-//using EPiServer.Logging.Compatibility;
-using EPiServer.ApplicationModules.Security;
-using System.ComponentModel.DataAnnotations;
-using EPiServer.Core;
-using EPiServer.DataAbstraction;
-using EPiServer.DataAnnotations;
 using System.Collections.Generic;
-//using Microsoft.AspNet.Identity.EntityFramework;
-//using Fluent.Infrastructure.FluentTools;
+using System.Data;
 
 namespace EpiSandbox.Data
 {
     public static class UserCreator
     {
-        public static void CreateUserIfDontExists(string username, string password, IEnumerable<string> roles)
+        public static void CreateUserIfDontExists(string username, string password, string email, IEnumerable<string> roles)
         {
             var membershipUser = Membership.GetUser(username);
 
@@ -35,14 +18,39 @@ namespace EpiSandbox.Data
             }
 
             MembershipCreateStatus status;
-            var user = Membership.CreateUser(username, password, null, null, null, true, out status);
+            var user = Membership.CreateUser(username, password, email, null, null, true, out status);
 
             if(status != MembershipCreateStatus.Success)
             {
-                throw new Exception($"User creation has status '{status}'.");
+                throw new DataException($"User creation has status '{status}'.");
             }
 
             foreach(string role in roles)
+            {
+                CheckRoleExists(role);
+            }
+
+            Roles.AddUserToRoles(username, roles.ToArray());
+        }
+
+        public static void CreateUser(string username, string password, string email, IEnumerable<string> roles)
+        {
+            var membershipUser = Membership.GetUser(username);
+
+            if (membershipUser != null)
+            {
+                throw new DuplicateNameException("User already exists.");
+            }
+
+            MembershipCreateStatus status;
+            var user = Membership.CreateUser(username, password, email, null, null, true, out status);
+
+            if (status != MembershipCreateStatus.Success)
+            {
+                throw new DataException($"User creation has status '{status}'.");
+            }
+
+            foreach (string role in roles)
             {
                 CheckRoleExists(role);
             }

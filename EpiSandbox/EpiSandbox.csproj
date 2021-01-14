@@ -239,6 +239,8 @@
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
     <Compile Include="Controllers\LoginApiController.cs" />
+    <Compile Include="Controllers\RegisterApiController.cs" />
+    <Compile Include="Data\UserRoles.cs" />
     <Compile Include="Initialization\BaseDataInitialization.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
@@ -256,6 +258,7 @@
     <Compile Include="Models\Pages\Article.cs" />
     <Compile Include="Models\Pages\HomePage.cs" />
     <Compile Include="Models\Pages\NodePage.cs" />
+    <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\View\NavMenu.cs" />
     <Compile Include="Models\View\NavMenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

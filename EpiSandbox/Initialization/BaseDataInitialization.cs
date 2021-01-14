@@ -5,6 +5,7 @@ using EPiServer.Core;
 using EPiServer.Framework;
 using EPiServer.Framework.Initialization;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace EpiSandbox.Initialization
@@ -26,10 +27,16 @@ namespace EpiSandbox.Initialization
 
         private void InitializeAdmin()
         {
-            var roles = new string[] { "Administrators", "WebAdmins", "WebEditors" };
+            var roles = new List<string>();
+            
+            foreach(var role in Enum.GetValues(typeof(UserRoles)))
+            {
+                roles.Add(role.ToString());
+            }
+
             RoleCreator.CreateIfDontExsist(roles);
 
-            UserCreator.CreateUserIfDontExists("admin", "P1p1K4k4", roles);
+            UserCreator.CreateUserIfDontExists("admin", "P1p1K4k4", null, roles);
         }
 
         private void CreateDefaultHomePage()
