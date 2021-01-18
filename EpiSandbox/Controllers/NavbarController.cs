@@ -21,7 +21,9 @@ namespace EpiSandbox.Controllers
         public ActionResult Index(PageData currentPage)
         {
             var model = new NavBarModel() {
-                Links = _linkService.FetchNavbarLinks(currentPage)
+                Links = _linkService.FetchNavbarLinks(currentPage),
+                IsAuthenticated = User.Identity.IsAuthenticated,
+                AuthenticatedAs = User.Identity.IsAuthenticated ? User.Identity.Name : null
             };
 
             return View("~/Views/Shared/_navbar.cshtml", model);
