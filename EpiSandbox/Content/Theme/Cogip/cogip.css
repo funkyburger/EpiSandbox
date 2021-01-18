@@ -18,6 +18,11 @@
     height: 50px;
 }
 
+.navbar-brand {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
 .link-item {
     margin-top: auto;
     margin-bottom: auto;
