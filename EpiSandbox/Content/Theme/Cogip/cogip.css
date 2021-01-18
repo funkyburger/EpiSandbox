@@ -39,3 +39,55 @@
     color: red;
     font-style: italic;
 }
+
+.navbar-scroll {
+    background-color: rgba(233, 236, 239, 0.4);
+    transition: background-color 0.5s;
+}
+
+.nav-bg {
+    background-color: #e9ecef !important;
+}
+
+@media(max-width: 768px) {
+    .navbar {
+        background-color: #007bff !important;
+        /*background-color: #e9ecef !important;*/
+    }
+}
+
+#commonHeader {
+    background: url("/Content/Theme/Cogip/common_header_background.jpg") no-repeat center center fixed;
+    /*background-size: 369px;*/
+    display: table;
+    /*height: 100%;*/
+    height: 369px;
+    position: relative;
+    width: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#spacerSection {
+    background: url("/Content/Theme/Cogip/spacer_section_background.jpg") no-repeat center center fixed;
+    height: 400px;
+    position: relative;
+    width: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#spacerFooter {
+    background: url("/Content/Theme/Cogip/spacer_footer_background.jpg") no-repeat center center fixed;
+    height: 300px;
+    position: relative;
+    width: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}

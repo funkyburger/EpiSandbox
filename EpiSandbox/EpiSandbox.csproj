@@ -280,8 +280,13 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\temp.css" />
+    <Content Include="Content\Theme\Cogip\spacer_footer_background.jpg" />
+    <Content Include="Content\Theme\Cogip\spacer_section_background.jpg" />
     <Content Include="Content\Theme\Cogip\cogip.css" />
     <Content Include="Content\Css\default.css" />
+    <Content Include="Content\Theme\Cogip\common_header_background.jpg" />
+    <Content Include="Content\Theme\Cogip\jumbotron_background.png" />
     <Content Include="Content\Theme\Cogip\logo.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -380,6 +385,7 @@
     <Content Include="Scripts\src\utils\setAttributes.js" />
     <Content Include="Scripts\src\utils\setStyles.js" />
     <Content Include="Scripts\src\utils\setupEventListeners.js" />
+    <Content Include="Scripts\temp.js" />
     <Content Include="Scripts\umd\popper-utils.js" />
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
