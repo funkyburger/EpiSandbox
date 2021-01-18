@@ -41,42 +41,6 @@ namespace EpiSandbox.Data
                 result.Add(FromPageData(node), sublinks);
             }
 
-            //var ancestors = _contentRepository.GetAncestors(currentPage.ContentLink);
-
-            //var activeMainNode = mainNodes.SingleOrDefault(mn => ancestors.Any(a => a.ContentGuid == mn.ContentGuid)
-            //                            || mn.ContentGuid == currentPage.ContentGuid);
-
-            //var model = new NavMenu()
-            //{
-            //    HeadItems = mainNodes.Select(i =>
-            //        new NavMenuItem()
-            //        {
-            //            Label = i.Name,
-            //            Link = _urlResolver.GetUrl(i.ContentLink),
-            //            Active = i.ContentGuid == activeMainNode?.ContentGuid
-            //        })
-            //};
-
-            //if (activeMainNode != null)
-            //{
-            //    var subItems = _contentRepository.GetChildren<PageData>(activeMainNode.ContentLink);
-
-            //    model.SubItems = subItems.Select(i => new NavMenuItem()
-            //    {
-            //        Label = i.Name,
-            //        Link = _urlResolver.GetUrl(i.ContentLink),
-            //        Active = ancestors.Any(a => a.ContentGuid == currentPage.ContentGuid)
-            //                || i.ContentGuid == currentPage.ContentGuid
-            //    });
-            //}
-            //else
-            //{
-            //    model.SubItems = new NavMenuItem[] { };
-            //}
-
-            //return View("~/Views/Shared/_navMenu.cshtml", model);
-
-            //throw new NotImplementedException();
             return result;
         }
 

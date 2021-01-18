@@ -18,20 +18,13 @@ namespace EpiSandbox.Controllers
             _linkService = linkService;
         }
 
-        // GET: NavBar
         public ActionResult Index(PageData currentPage)
         {
             var model = new NavBarModel() {
                 Links = _linkService.FetchNavbarLinks(currentPage)
             };
 
-            //return View("_navbar");
             return View("~/Views/Shared/_navbar.cshtml", model);
         }
-
-        //private IDictionary<LinkModel, IEnumerable<LinkModel>> FetchLinks()
-        //{
-
-        //}
     }
 }
