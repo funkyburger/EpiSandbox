@@ -28,6 +28,10 @@
     margin-bottom: auto;
 }
 
+.link-selected {
+    text-decoration: underline;
+}
+
 .actionLink {
     margin-top: auto;
     margin-bottom: auto;

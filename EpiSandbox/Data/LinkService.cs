@@ -27,30 +27,31 @@ namespace EpiSandbox.Data
             var result = new Dictionary<LinkModel, IEnumerable<LinkModel>>();
 
             var mainNodes = _contentRepository.GetChildren<NodePage>(startpage);
+            var ancestors = _contentRepository.GetAncestors(currentPage.ContentLink);
 
             foreach (var node in mainNodes)
             {
-                //result.Add()
                 var sublinks = new List<LinkModel>();
 
                 foreach (var pageData in _contentRepository.GetChildren<PageData>(node.ContentLink))
                 {
-                    sublinks.Add(FromPageData(pageData));
+                    sublinks.Add(FromPageData(pageData, ancestors, currentPage));
                 }
 
-                result.Add(FromPageData(node), sublinks);
+                result.Add(FromPageData(node, ancestors, currentPage), sublinks);
             }
 
             return result;
         }
 
-        private LinkModel FromPageData(PageData pageData) 
+        private LinkModel FromPageData(PageData pageData, IEnumerable<IContent> ancestors, PageData currentPage) 
         {
             return new LinkModel()
             {
                 Label = pageData.Name,
                 Link = _urlResolver.GetUrl(pageData.ContentLink),
-                Active = false
+                Active = ancestors.Any(a => a.ContentGuid == pageData.ContentGuid)
+                    || pageData.ContentGuid == currentPage.ContentGuid
             };
         }
     }

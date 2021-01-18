@@ -11,11 +11,11 @@
             @foreach (var mainlink in Model.Links)
             {
                 <li class="nav-item dropdown">
-                    <a class="nav-link" href="@mainlink.Key.Link" id="dropdown01" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">@mainlink.Key.Label</a>
+                    <a class="nav-link @(mainlink.Key.Active ? "link-selected" : null)" href="@mainlink.Key.Link" id="dropdown01" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">@mainlink.Key.Label</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
                         @foreach(var sublink in mainlink.Value)
                         {
-                            <a class="dropdown-item" href="@sublink.Link">@sublink.Label</a>
+                            <a class="dropdown-item @(sublink.Active ? "link-selected" : null)" href="@sublink.Link">@sublink.Label</a>
                         }
                     </div>
                 </li>
