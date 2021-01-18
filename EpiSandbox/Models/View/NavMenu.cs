@@ -5,6 +5,7 @@ using System.Web;
 
 namespace EpiSandbox.Models.View
 {
+    [Obsolete]
     public class NavMenu
     {
         public IEnumerable<NavMenuItem> HeadItems { get; set; }

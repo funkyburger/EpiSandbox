@@ -12,7 +12,7 @@ namespace EpiSandbox.Initialization
     {
         public void ConfigureContainer(ServiceConfigurationContext context)
         {
-            //context.Services.AddTransient<ITest, Test>();
+            context.Services.AddTransient<Data.ILinkService, Data.LinkService>();
         }
 
         public void Initialize(InitializationEngine context)

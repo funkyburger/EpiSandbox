@@ -240,7 +240,10 @@
   <ItemGroup>
     <Compile Include="Controllers\LoginApiController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\NavbarController.cs" />
     <Compile Include="Controllers\RegisterApiController.cs" />
+    <Compile Include="Data\ILinkService.cs" />
+    <Compile Include="Data\LinkService.cs" />
     <Compile Include="Data\UserRoles.cs" />
     <Compile Include="Initialization\BaseDataInitialization.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
@@ -260,6 +263,8 @@
     <Compile Include="Models\Pages\HomePage.cs" />
     <Compile Include="Models\Pages\NodePage.cs" />
     <Compile Include="Models\RegisterModel.cs" />
+    <Compile Include="Models\View\LinkModel.cs" />
+    <Compile Include="Models\View\NavBarModel.cs" />
     <Compile Include="Models\View\NavMenu.cs" />
     <Compile Include="Models\View\NavMenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -272,6 +277,7 @@
     <Folder Include="Models\Media\" />
     <Folder Include="Models\Properties\" />
     <Folder Include="Static\" />
+    <Folder Include="Views\NavBar\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap-grid.css" />
@@ -418,6 +424,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\Login\LoggedIn.cshtml" />
+    <Content Include="Views\Shared\_navbar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
