@@ -1,6 +1,14 @@
 ﻿body {
 }
 
+footer {
+    border-top: black thin solid;
+}
+
+.wrapper {
+    min-height: calc(100vh - 50px);
+}
+
 /*.page {
     display: table;
     width: 100%;
@@ -9,7 +17,6 @@
 .page-content {
     display: table-cell;
 }*/
-
 .nav-menu {
     background-color: darkgray;
 }
@@ -67,10 +74,8 @@
 
 #commonHeader {
     background: url("/Content/Theme/Cogip/common_header_background.jpg") no-repeat center center fixed;
-    /*background-size: 369px;*/
     display: table;
-    /*height: 100%;*/
-    height: 369px;
+    height: 200px;
     position: relative;
     width: 100%;
     -webkit-background-size: cover;
@@ -79,7 +84,7 @@
     background-size: cover;
 }
 
-#spacerSection {
+#section1 {
     background: url("/Content/Theme/Cogip/spacer_section_background.jpg") no-repeat center center fixed;
     height: 400px;
     position: relative;
@@ -90,7 +95,7 @@
     background-size: cover;
 }
 
-#spacerFooter {
+#section2 {
     background: url("/Content/Theme/Cogip/spacer_footer_background.jpg") no-repeat center center fixed;
     height: 300px;
     position: relative;
