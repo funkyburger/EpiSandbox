@@ -1,0 +1,115 @@
+﻿@model EpiSandbox.Models.View.NavBarModel
+
+@Html.AntiForgeryToken()
+
+<nav class="navbar navbar-expand-md navbar-light bg-fade fixed-top">
+    <a class="navbar-brand" href="/"><img src="~/Content/Theme/Cogip/logo.png" /></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse">
+        <ul class="navbar-nav mr-auto">
+            @foreach (var mainlink in Model.Links)
+            {
+                <li class="nav-item dropdown">
+                    <a class="nav-link @(mainlink.Key.Active ? "link-selected" : null)" href="@mainlink.Key.Link" id="dropdown01" data-hover="dropdown" aria-haspopup="true" aria-expanded="false">@mainlink.Key.Label</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        @foreach (var sublink in mainlink.Value)
+                        {
+                            <a class="dropdown-item @(sublink.Active ? "link-selected" : null)" href="@sublink.Link">@sublink.Label</a>
+                        }
+                    </div>
+                </li>
+            }
+        </ul>
+
+        @if (Model.IsAuthenticated)
+        {
+            <div class="form-inline my-2 my-lg-0">
+                <div class="actionLink">@Model.AuthenticatedAs</div>
+                <div class="actionLink"><a href="#" onclick="logoff();">Logoff</a></div>
+            </div>
+        }
+        else
+        {
+            <div class="form-inline my-2 my-lg-0">
+                <div class="actionLink"><a href="#" data-toggle="modal" data-target="#signinModal">Sign in</a></div>
+                <div class="actionLink"><a href="#" data-toggle="modal" data-target="#loginModal">Log in</a></div>
+            </div>
+        }
+
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+@if (!Model.IsAuthenticated)
+{
+    <!-- Modals -->
+    <div id="signinModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Sign in</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4 default-element">Login:</div>
+                        <div class="col-md-4 default-element"><input id="tbSigninLogin" type="text" /></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 default-element">Email:</div>
+                        <div class="col-md-4 default-element"><input id="tbSigninEmail" type="text" /></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 default-element">Password:</div>
+                        <div class="col-md-4 default-element"><input id="tbSigninPassword" type="password" /></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 default-element">Confirm password:</div>
+                        <div class="col-md-4 default-element"><input id="tbSigninConfirmPassword" type="password" /></div>
+                    </div>
+                    <div class="row">
+                        <div id="signinErrorMessage" class="col-md-4 default-element error-message">An error occured</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 default-element"></div>
+                        <div class="col-md-4 default-element"><input id="signinButton" type="button" value="Sign in" onclick="trySignIn(); return false;" /></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="loginModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Login</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md-4 default-element">Login:</div>
+                        <div class="col-md-4 default-element"><input id="tbLoginLogin" type="text" /></div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 default-element">Password:</div>
+                        <div class="col-md-4 default-element"><input id="tbLoginPassword" type="password" /></div>
+                    </div>
+                    <div class="row">
+                        <div id="loginErrorMessage" class="col-md-4 default-element error-message">An error occured</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 default-element"></div>
+                        <div class="col-md-4 default-element"><input id="loginButton" type="button" value="Log in" onclick="tryLogin(); return false;" /></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}

@@ -1,6 +1,14 @@
 ﻿body {
 }
 
+footer {
+    border-top: black thin solid;
+}
+
+.wrapper {
+    min-height: calc(100vh - 50px);
+}
+
 /*.page {
     display: table;
     width: 100%;
@@ -9,7 +17,6 @@
 .page-content {
     display: table-cell;
 }*/
-
 .nav-menu {
     background-color: darkgray;
 }
@@ -18,9 +25,18 @@
     height: 50px;
 }
 
+.navbar-brand {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
 .link-item {
     margin-top: auto;
     margin-bottom: auto;
+}
+
+.link-selected {
+    text-decoration: underline;
 }
 
 .actionLink {
@@ -38,4 +54,54 @@
     display: none;
     color: red;
     font-style: italic;
+}
+
+.navbar-scroll {
+    background-color: rgba(233, 236, 239, 0.4);
+    transition: background-color 0.5s;
+}
+
+.nav-bg {
+    background-color: #e9ecef !important;
+}
+
+@media(max-width: 768px) {
+    .navbar {
+        background-color: #007bff !important;
+        /*background-color: #e9ecef !important;*/
+    }
+}
+
+#commonHeader {
+    background: url("/Content/Theme/Cogip/common_header_background.jpg") no-repeat center center fixed;
+    display: table;
+    height: 200px;
+    position: relative;
+    width: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#section1 {
+    background: url("/Content/Theme/Cogip/spacer_section_background.jpg") no-repeat center center fixed;
+    height: 400px;
+    position: relative;
+    width: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+#section2 {
+    background: url("/Content/Theme/Cogip/spacer_footer_background.jpg") no-repeat center center fixed;
+    height: 300px;
+    position: relative;
+    width: 100%;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }

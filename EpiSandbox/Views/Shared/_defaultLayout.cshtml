@@ -12,22 +12,22 @@
     @Scripts.Render("~/script")
 
     @* TODO : remove *@
-    <script type="text/javascript" src="~/Scripts/episandbox.js?rnd=@DateTime.Now.Ticks"></script>
+    <script type="text/javascript" src="~/Scripts/episandbox.js"></script>
 </head>
 <body>
-    <div>
-        @{ Html.RenderAction("Index", "NavMenu"); }
+    @{ Html.RenderAction("Index", "NavBar"); }
+
+    <div id="commonHeader" class="common-header">
     </div>
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-2">
-            </div>
-            <div class="col-md-10">
-                @RenderBody()
-            </div>
-        </div>
-        
+    <div class="wrapper">
+        @RenderBody()
     </div>
+    
+    <footer>
+        <div class="container">
+            <p class="text-right">Copyright &copy; Cogip 2000</p>
+        </div>
+    </footer>
 </body>
 </html>

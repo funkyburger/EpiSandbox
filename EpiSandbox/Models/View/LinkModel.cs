@@ -5,8 +5,7 @@ using System.Web;
 
 namespace EpiSandbox.Models.View
 {
-    [Obsolete]
-    public class NavMenuItem
+    public class LinkModel
     {
         public string Label { get; set; }
 

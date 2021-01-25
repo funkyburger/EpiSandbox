@@ -1,4 +1,4 @@
-﻿console.log('episandbox.js');
+﻿//console.log('episandbox.js');
 
 function tryLogin() {
     console.log('tryLogin()');
@@ -60,3 +60,58 @@ function logoff() {
             location.reload(true);
         });
 }
+
+// navbar transition js
+$(document).ready(function () {
+    $(window).scroll(function () {
+        var scroll = $(window).scrollTop();
+        if (scroll > 0) {
+            $(".navbar").addClass("navbar-scroll");
+        }
+        else {
+            $(".navbar").removeClass("navbar-scroll");
+        }
+        if (scroll > 200) {
+            $(".navbar").addClass("nav-bg");
+        }
+        else {
+            $(".navbar").removeClass("nav-bg");
+        }
+    })
+});
+
+// navbar dropdowns on mouse hover
+$(window).on("load resize", function () {
+    console.log("load resize");
+
+    var dropdowns = $(".dropdown");
+    var dropdownToggles = $(".dropdown-toggle");
+    var dropdownMenus = $(".dropdown-menu");
+
+    if (this.matchMedia("(min-width: 768px)").matches) {
+        console.log("(min-width: 768px)");
+
+        console.log(dropdowns.length);
+
+        dropdowns.hover(
+            function () {
+                console.log("hover in");
+
+                const $this = $(this);
+                $this.addClass("show");
+                $this.find(dropdownToggles).attr("aria-expanded", "true");
+                $this.find(dropdownMenus).addClass("show");
+            },
+            function () {
+                console.log("hover out");
+
+                const $this = $(this);
+                $this.removeClass("show");
+                $this.find(dropdownToggles).attr("aria-expanded", "false");
+                $this.find(dropdownMenus).removeClass("show");
+            }
+        );
+    } else {
+        dropdowns.off("mouseenter mouseleave");
+    }
+});
