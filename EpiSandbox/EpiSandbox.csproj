@@ -238,10 +238,9 @@
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
   <ItemGroup>
-    <Compile Include="Controllers\LoginApiController.cs" />
+    <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\NavbarController.cs" />
-    <Compile Include="Controllers\RegisterApiController.cs" />
     <Compile Include="Data\ILinkService.cs" />
     <Compile Include="Data\LinkService.cs" />
     <Compile Include="Data\UserRoles.cs" />
