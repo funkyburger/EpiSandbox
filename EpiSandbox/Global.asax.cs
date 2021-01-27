@@ -24,20 +24,16 @@ namespace EpiSandbox
             var bundles = BundleTable.Bundles;
 
             // To force script refresh
-            BundleTable.EnableOptimizations = true;
+            BundleTable.EnableOptimizations = false;
 
             bundles.Add(new StyleBundle("~/css")
-                .Include("~/Content/bootstrap.css",
-                    "~/Content/bootstrap-grid.css"));
+                .Include("~/Content/Css/bootstrap/bootstrap.css",
+                    "~/Content/Css/bootstrap/bootstrap-grid.css"));
 
-            // To force episandbox.js refresh
-            bundles.Add(new ScriptBundle("~/script")
-                .Include("~/Scripts/jquery-3.0.0.js",
-                "~/Scripts/bootstrap.bundle.js",
-                "~/Scripts/modernizr-2.8.3.js"//,
-                // TODO : put back
-                                              //"~/Scripts/episandbox.js"));
-                ));
+            bundles.Add(new ScriptBundle("~/scripts")
+                .Include("~/Content/Scripts/modernizr-2.8.3.js")
+                .Include("~/Content/Scripts/jquery/jquery-3.0.0.min.js")
+                .Include("~/Content/Scripts/bootstrap/bootstrap.bundle.min.js"));
         }
     }
 }
