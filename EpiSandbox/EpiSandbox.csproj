@@ -261,7 +261,7 @@
     <Compile Include="Models\Pages\Article.cs" />
     <Compile Include="Models\Pages\HomePage.cs" />
     <Compile Include="Models\Pages\NodePage.cs" />
-    <Compile Include="Models\RegisterModel.cs" />
+    <Compile Include="Models\AuthenticationModel.cs" />
     <Compile Include="Models\View\LinkModel.cs" />
     <Compile Include="Models\View\NavBarModel.cs" />
     <Compile Include="Models\View\NavMenu.cs" />

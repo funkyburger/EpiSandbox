@@ -35,7 +35,7 @@ namespace EpiSandbox.Controllers
 
         [System.Web.Http.Route("register")]
         [ValidateAntiForgeryToken]
-        public object Post([FromBody] RegisterModel registerModel)
+        public object Post([FromBody] AuthenticationModel registerModel)
         {
             if (registerModel == null
                     || string.IsNullOrEmpty(registerModel.Login)
