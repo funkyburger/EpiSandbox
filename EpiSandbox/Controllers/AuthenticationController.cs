@@ -11,14 +11,14 @@ namespace EpiSandbox.Controllers
     {
         [System.Web.Http.Route("login")]
         [ValidateAntiForgeryToken]
-        public object Post([FromBody] LoginModel loginModel)
+        public object Login([FromBody] AuthenticationModel model)
         {
-            var isValid = Membership.Provider.ValidateUser(loginModel.Login, loginModel.Password);
+            var isValid = Membership.Provider.ValidateUser(model.Login, model.Password);
 
             if (isValid)
             {
-                // TODO : remember me
-                FormsAuthentication.SetAuthCookie(loginModel.Login, true);
+                // TODO : remember me ... or not
+                FormsAuthentication.SetAuthCookie(model.Login, true);
                 return new { success = true, message = "" };
             }
 
@@ -27,7 +27,7 @@ namespace EpiSandbox.Controllers
 
         [System.Web.Http.Route("logoff")]
         [ValidateAntiForgeryToken]
-        public object Logoff([FromBody] LoginModel loginModel)
+        public object Logoff([FromBody] AuthenticationModel model)
         {
             FormsAuthentication.SignOut();
             return new { success = false, message = "" };
@@ -35,25 +35,25 @@ namespace EpiSandbox.Controllers
 
         [System.Web.Http.Route("register")]
         [ValidateAntiForgeryToken]
-        public object Post([FromBody] AuthenticationModel registerModel)
+        public object Register([FromBody] AuthenticationModel model)
         {
-            if (registerModel == null
-                    || string.IsNullOrEmpty(registerModel.Login)
-                    || string.IsNullOrEmpty(registerModel.Email)
-                    || string.IsNullOrEmpty(registerModel.Password)
-                    || string.IsNullOrEmpty(registerModel.PasswordConfirmation))
+            if (model == null
+                    || string.IsNullOrEmpty(model.Login)
+                    || string.IsNullOrEmpty(model.Email)
+                    || string.IsNullOrEmpty(model.Password)
+                    || string.IsNullOrEmpty(model.PasswordConfirmation))
             {
                 return new { success = false, message = "All fields must be filled" };
             }
-            else if (registerModel.Password != registerModel.PasswordConfirmation)
+            else if (model.Password != model.PasswordConfirmation)
             {
                 return new { success = false, message = "Password and confirmation must match" };
             }
 
             try
             {
-                UserCreator.CreateUser(registerModel.Login, registerModel.Password, registerModel.Email, new string[] { UserRoles.WebUsers.ToString() });
-                FormsAuthentication.SetAuthCookie(registerModel.Login, true);
+                UserCreator.CreateUser(model.Login, model.Password, model.Email, new string[] { UserRoles.WebUsers.ToString() });
+                FormsAuthentication.SetAuthCookie(model.Login, true);
                 return new { success = true, message = "" };
             }
             catch (DuplicateNameException)

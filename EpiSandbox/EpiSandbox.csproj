@@ -257,7 +257,6 @@
     </Compile>
     <Compile Include="Initialization\RoutingInitialization.cs" />
     <Compile Include="Initialization\WebApiConfig.cs" />
-    <Compile Include="Models\LoginModel.cs" />
     <Compile Include="Models\Pages\Article.cs" />
     <Compile Include="Models\Pages\HomePage.cs" />
     <Compile Include="Models\Pages\NodePage.cs" />

@@ -12,7 +12,7 @@ namespace EpiSandbox.Controllers
         // GET: Login
         public ActionResult Index()
         {
-            var model = new LoginModel();
+            var model = new AuthenticationModel();
 
             if (User.Identity.IsAuthenticated)
             {
