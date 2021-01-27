@@ -73,7 +73,7 @@ footer {
 }
 
 #commonHeader {
-    background: url("/Content/Theme/Cogip/common_header_background.jpg") no-repeat center center fixed;
+    background: url("/Content/Css/Theme/Cogip/common_header_background.jpg") no-repeat center center fixed;
     display: table;
     height: 200px;
     position: relative;
@@ -85,7 +85,7 @@ footer {
 }
 
 #section1 {
-    background: url("/Content/Theme/Cogip/spacer_section_background.jpg") no-repeat center center fixed;
+    background: url("/Content/Css/Theme/Cogip/spacer_section_background.jpg") no-repeat center center fixed;
     height: 400px;
     position: relative;
     width: 100%;
@@ -96,7 +96,7 @@ footer {
 }
 
 #section2 {
-    background: url("/Content/Theme/Cogip/spacer_footer_background.jpg") no-repeat center center fixed;
+    background: url("/Content/Css/Theme/Cogip/spacer_footer_background.jpg") no-repeat center center fixed;
     height: 300px;
     position: relative;
     width: 100%;
