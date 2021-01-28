@@ -253,6 +253,7 @@
     <Compile Include="Controllers\AuthenticationController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\NavbarController.cs" />
+    <Compile Include="Controllers\SearchApiController.cs" />
     <Compile Include="Data\ILinkService.cs" />
     <Compile Include="Data\LinkService.cs" />
     <Compile Include="Data\UserRoles.cs" />
@@ -273,6 +274,8 @@
     <Compile Include="Models\Pages\HomePage.cs" />
     <Compile Include="Models\Pages\NodePage.cs" />
     <Compile Include="Models\AuthenticationModel.cs" />
+    <Compile Include="Models\SearchHit.cs" />
+    <Compile Include="Models\SearchResultModel.cs" />
     <Compile Include="Models\View\LinkModel.cs" />
     <Compile Include="Models\View\NavBarModel.cs" />
     <Compile Include="Models\View\NavMenu.cs" />

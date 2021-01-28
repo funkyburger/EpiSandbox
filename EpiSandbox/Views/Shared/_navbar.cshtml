@@ -39,10 +39,19 @@
             </div>
         }
 
-        <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
-        </form>
+    <form class="form-inline my-2 my-lg-0">
+        <div>
+            <input class="form-control mr-sm-2" id="searchField" type="text" placeholder="Search" aria-label="Search" oninput="onSearchBoxTyping();">
+
+            <table class="search-suggestion" id="searchSuggestion">
+                <thead>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+    </form>
     </div>
 </nav>
 

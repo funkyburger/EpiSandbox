@@ -9,14 +9,6 @@ footer {
     min-height: calc(100vh - 50px);
 }
 
-/*.page {
-    display: table;
-    width: 100%;
-}
-
-.page-content {
-    display: table-cell;
-}*/
 .nav-menu {
     background-color: darkgray;
 }
@@ -105,3 +97,26 @@ footer {
     -o-background-size: cover;
     background-size: cover;
 }
+
+.search-suggestion {
+    background-color: white;
+    position: absolute;
+    padding: 0;
+    display:none;
+}
+
+    .search-suggestion tr {
+        border-bottom: black solid thin;
+    }
+
+    .search-suggestion tr :hover {
+        background-color:lightgray;
+    }
+
+    .search-suggestion div {
+        min-width: 200px;
+    }
+
+    .search-suggestion a {
+        color:black;
+    }
