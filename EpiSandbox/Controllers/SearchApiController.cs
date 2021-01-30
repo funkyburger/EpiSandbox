@@ -10,7 +10,7 @@ namespace EpiSandbox.Controllers
 {
     public class SearchApiController : ApiController
     {
-        [Route("search")]
+        [Route("api/search")]
         public IEnumerable<SearchHit> Get(string query, int page = 1, int pageSize = 20)
         {
             // TODO : real search

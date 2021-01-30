@@ -53,7 +53,7 @@ function onSearchBoxTyping() {
     var queryString = $('#searchField').val();
 
     if (queryString.length > 3) {
-        $.get("/search/?query=" + queryString, displaySearchSuggestions)
+        $.get("api/search/?query=" + queryString, displaySearchSuggestions)
             .fail(function () {
                 console.log("An error occured during search.");
                 $('#searchSuggestion').hide();

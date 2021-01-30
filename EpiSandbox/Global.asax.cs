@@ -33,7 +33,8 @@ namespace EpiSandbox
             bundles.Add(new ScriptBundle("~/scripts")
                 .Include("~/Content/Scripts/modernizr-2.8.3.js")
                 .Include("~/Content/Scripts/jquery/jquery-3.0.0.min.js")
-                .Include("~/Content/Scripts/bootstrap/bootstrap.bundle.min.js"));
+                .Include("~/Content/Scripts/bootstrap/bootstrap.bundle.min.js")
+                .Include("~/Content/Scripts/search.js"));
         }
     }
 }
