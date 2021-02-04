@@ -2,15 +2,19 @@
 /// <reference path="./Search/SearchResultDisplayer.ts"/>
 
 $(() => {
-    let resultDisplayer = new SearchResultDisplayer($('.result-table'));
+    var resultTable = $('.result-table');
 
-    resultDisplayer.loadNextResults();
+    if (resultTable.length > 0) {
+        let resultDisplayer = new SearchResultDisplayer($('.result-table'));
 
-    window.addEventListener("scroll", function () {
-        console.log('scroll');
+        resultDisplayer.loadNextResults();
 
-        if (resultDisplayer.isTableSrolledToBottom()) {
-            resultDisplayer.loadNextResults();
-        }
-    });
+        window.addEventListener("scroll", function () {
+            console.log('scroll');
+
+            if (resultDisplayer.isTableSrolledToBottom()) {
+                resultDisplayer.loadNextResults();
+            }
+        });
+    }
 });
