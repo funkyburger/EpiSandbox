@@ -1,20 +1,16 @@
 ﻿/// <reference path="./jquery/jquery.d.ts"/>
 /// <reference path="./Search/SearchResultDisplayer.ts"/>
 
-//window.addEventListener("scroll", onScroll);
-
-function onScroll() {
-    console.log('scroll');
-    //$('#test').html('saddsasadsda');
-    console.log($('#test').html());
-}
-
 $(() => {
-    let truc = new SearchResultDisplayer($('.result-table'));
+    let resultDisplayer = new SearchResultDisplayer($('.result-table'));
 
-    truc.loadNextResults();
+    resultDisplayer.loadNextResults();
+
+    window.addEventListener("scroll", function () {
+        console.log('scroll');
+
+        if (resultDisplayer.isTableSrolledToBottom()) {
+            resultDisplayer.loadNextResults();
+        }
+    });
 });
-
-//console.log($('.result-table').length);
-//$('#test').html('pipi')
-

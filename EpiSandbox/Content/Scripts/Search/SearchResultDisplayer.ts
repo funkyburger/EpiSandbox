@@ -15,6 +15,10 @@ class SearchResultDisplayer {
         this.fetchResults("aglagla");
     }
 
+    public isTableSrolledToBottom(): boolean {
+        return this.getLowerWindowY() >= this.getLowerListY();
+    }
+
     private displayResult(searchResult: SearchResult): void {
         var mainDiv = $("<div/>");
         mainDiv.addClass("row");
@@ -50,5 +54,13 @@ class SearchResultDisplayer {
                 // TODO : error handling
                 console.error('fail');
             });
+    }
+
+    private getLowerWindowY(): number{
+        return window.innerHeight + window.scrollY;
+    }
+
+    private getLowerListY(): number {
+        return this.listElement.height() + this.listElement.offset().top;
     }
 }
