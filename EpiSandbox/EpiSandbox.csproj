@@ -300,7 +300,6 @@
     <Compile Include="Initialization\ServiceLocatorDependencyResolver.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Business\" />
     <Folder Include="Content\Images\" />
     <Folder Include="Models\Blocks\" />
     <Folder Include="Models\Media\" />
