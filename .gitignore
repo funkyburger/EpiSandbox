@@ -8,3 +8,5 @@
 /EpiSandbox/EpiSandbox.csproj.user
 /packages
 /.vs
+/EpiSandbox/Content/Scripts/typescripts.js.map
+/EpiSandbox/Content/Scripts/typescripts.js

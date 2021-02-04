@@ -1,6 +1,7 @@
 ﻿/// <reference path="./jquery/jquery.d.ts"/>
+/// <reference path="./Search/SearchResultDisplayer.ts"/>
 
-window.addEventListener("scroll", onScroll);
+//window.addEventListener("scroll", onScroll);
 
 function onScroll() {
     console.log('scroll');
@@ -8,35 +9,12 @@ function onScroll() {
     console.log($('#test').html());
 }
 
-//function hookOnControl() {
-//    //$('.result-table').on
-//}
+$(() => {
+    let truc = new SearchResultDisplayer($('.result-table'));
 
-class SearchResult {
-    headline: string;
-    sampleText: string;
-}
+    truc.loadNextResults();
+});
 
-class SearchResultDisplayer {
-    lastpage: number;
+//console.log($('.result-table').length);
+//$('#test').html('pipi')
 
-    constructor() {
-        this.lastpage = -1;
-    }
-
-    loadNextResults() {
-        console.log('loadNextResults');
-        this.displayResult(new SearchResult());
-    }
-
-    displayResult(searchResult: SearchResult) {
-        var div = $('div');
-        div.html('prout');
-
-        div.appendTo($('#test'));
-    }
-}
-
-let truc = new SearchResultDisplayer();
-
-truc.loadNextResults();
