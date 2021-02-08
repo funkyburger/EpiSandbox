@@ -2,6 +2,16 @@
 /// <reference path="./Search/SearchResultDisplayer.ts"/>
 
 $(() => {
+    var searchButton = $('#btnSearch');
+
+    searchButton.mouseup(eventObject => {
+        var query = $('#searchField').val();
+
+        if (query.length > 0) {
+            window.location.href = "/search?q=" + query;
+        }
+    });
+
     var resultTable = $('.result-table');
 
     if (resultTable.length > 0) {

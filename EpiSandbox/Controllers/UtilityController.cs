@@ -9,9 +9,9 @@ namespace EpiSandbox.Controllers
     public class UtilityController : Controller
     {
         [Route("search")]
-        public ActionResult Search(string query)
+        public ActionResult Search(string q)
         {
-            //http://localhost:65088/Utility/Search?query=bla
+            //http://localhost:65090/Utility/Search?query=bla
 
             return View();
         }
