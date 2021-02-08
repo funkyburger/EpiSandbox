@@ -5,13 +5,19 @@
 class SearchResultDisplayer {
     lastpage: number;
     listElement: JQuery;
+    isEnabled: boolean;
 
     constructor(listElement: JQuery) {
         this.lastpage = -1;
         this.listElement = listElement;
+        this.isEnabled = true;
     }
 
     public loadNextResults(): void {
+        if (!this.isEnabled) {
+            return;
+        }
+
         this.fetchResults("aglagla");
     }
 
@@ -48,6 +54,10 @@ class SearchResultDisplayer {
             url: "/api/search?query=" + query + "&page=" + this.lastpage + "&pageSize=10",
             type: 'GET'
         }).then((data: SearchResult[], textStatus: string, jqXhr: JQueryXHR) => {
+            if (data.length < 1) {
+                this.isEnabled = false;
+            }
+
             data.forEach(sr => { this.displayResult(sr); });
         })
             .fail((error: any) => {
