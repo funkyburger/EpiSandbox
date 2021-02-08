@@ -450,6 +450,8 @@
     <TypeScriptCompile Include="Content\Scripts\es6-promise\es6-promise.d.ts" />
     <TypeScriptCompile Include="Content\Scripts\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Content\Scripts\index.d.ts" />
+    <TypeScriptCompile Include="Content\Scripts\misc\extensions.ts" />
+    <TypeScriptCompile Include="Content\Scripts\misc\KeyValuePair.ts" />
     <TypeScriptCompile Include="Content\Scripts\search.tsx" />
     <TypeScriptCompile Include="Content\Scripts\Search\SearchResult.ts" />
     <TypeScriptCompile Include="Content\Scripts\Search\SearchResultDisplayer.ts" />

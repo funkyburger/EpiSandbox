@@ -11,7 +11,7 @@ namespace EpiSandbox.Controllers
     public class SearchApiController : ApiController
     {
         [Route("api/search")]
-        public IEnumerable<SearchHit> Get(string query, int page = 1, int pageSize = 20)
+        public IEnumerable<SearchHit> Get(string q, int page = 1, int pageSize = 20)
         {
             if(page < 5)
             {

@@ -6,11 +6,20 @@ class SearchResultDisplayer {
     lastpage: number;
     listElement: JQuery;
     isEnabled: boolean;
+    query: string;
 
-    constructor(listElement: JQuery) {
+    constructor(listElement: JQuery, query: string) {
         this.lastpage = -1;
         this.listElement = listElement;
         this.isEnabled = true;
+        this.query = query;
+
+        if (query == null) {
+            this.isEnabled = false;
+        }
+        else if (query.length < 1) {
+            this.isEnabled = false;
+        }
     }
 
     public loadNextResults(): void {
@@ -18,7 +27,7 @@ class SearchResultDisplayer {
             return;
         }
 
-        this.fetchResults("aglagla");
+        this.fetchResults(this.query);
     }
 
     public isTableSrolledToBottom(): boolean {
@@ -51,7 +60,7 @@ class SearchResultDisplayer {
         this.lastpage++;
 
         $.ajax({
-            url: "/api/search?query=" + query + "&page=" + this.lastpage + "&pageSize=10",
+            url: "/api/search?q=" + query + "&page=" + this.lastpage + "&pageSize=10",
             type: 'GET'
         }).then((data: SearchResult[], textStatus: string, jqXhr: JQueryXHR) => {
             if (data.length < 1) {
