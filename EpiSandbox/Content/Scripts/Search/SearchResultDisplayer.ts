@@ -9,7 +9,7 @@ class SearchResultDisplayer {
     query: string;
 
     constructor(listElement: JQuery, query: string) {
-        this.lastpage = -1;
+        this.lastpage = 0;
         this.listElement = listElement;
         this.isEnabled = true;
         this.query = query;
