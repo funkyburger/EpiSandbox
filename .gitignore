@@ -10,3 +10,5 @@
 /.vs
 /EpiSandbox/Content/Scripts/typescripts.js.map
 /EpiSandbox/Content/Scripts/typescripts.js
+/EpiSandbox.UnitTests/obj
+/EpiSandbox.UnitTests/bin
