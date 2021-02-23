@@ -147,6 +147,9 @@
     <Reference Include="EPiServer.Web.WebControls, Version=11.15.1.0, Culture=neutral, PublicKeyToken=8fe83dea738b45b7, processorArchitecture=MSIL">
       <HintPath>..\packages\EPiServer.CMS.AspNet.11.15.1\lib\net461\EPiServer.Web.WebControls.dll</HintPath>
     </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.11.30.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.11.30\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
     <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
@@ -288,9 +291,12 @@
     <Compile Include="Controllers\UtilityController.cs" />
     <Compile Include="Data\ILinkService.cs" />
     <Compile Include="Data\IPageSearcher.cs" />
+    <Compile Include="Data\ISampleGetter.cs" />
     <Compile Include="Data\LinkService.cs" />
     <Compile Include="Data\PageSearcher.cs" />
+    <Compile Include="Data\SampleGetter.cs" />
     <Compile Include="Data\UserRoles.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
     <Compile Include="Initialization\BaseDataInitialization.cs" />
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\HomePageController.cs" />
@@ -308,6 +314,7 @@
     <Compile Include="Models\Pages\HomePage.cs" />
     <Compile Include="Models\Pages\NodePage.cs" />
     <Compile Include="Models\AuthenticationModel.cs" />
+    <Compile Include="Models\Pages\StandardContentPage.cs" />
     <Compile Include="Models\SearchHit.cs" />
     <Compile Include="Models\View\LinkModel.cs" />
     <Compile Include="Models\View\NavBarModel.cs" />

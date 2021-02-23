@@ -10,6 +10,13 @@ namespace EpiSandbox.Data
 {
     public class PageSearcher : IPageSearcher
     {
+        private readonly ISampleGetter _sampleGetter;
+
+        public PageSearcher(ISampleGetter sampleGetter)
+        {
+            _sampleGetter = sampleGetter;
+        }
+
         public IEnumerable<SearchHit> SearchPages(string query, int pagingNumber, int pagingSize)
         {
             var pageDatas = FindPages(query, pagingNumber, pagingSize).ToArray();
@@ -18,7 +25,7 @@ namespace EpiSandbox.Data
             {
                 Headline = p.Name,
                 Link = p.LinkURL,
-                Sample = "tata titi toto"
+                Sample = _sampleGetter.GetSample(p, query)
             });
         }
 

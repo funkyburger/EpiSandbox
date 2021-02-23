@@ -18,6 +18,7 @@ namespace EpiSandbox.Initialization
             var container = new UnityContainer();
             container.RegisterType<Data.ILinkService, Data.LinkService>();
             container.RegisterType<Data.IPageSearcher, Data.PageSearcher>();
+            container.RegisterType<Data.ISampleGetter, Data.SampleGetter>();
 
             //GlobalConfiguration.Configuration.DependencyResolver
             //GlobalConfiguration.Configuration.DependencyResolver = 
@@ -28,6 +29,7 @@ namespace EpiSandbox.Initialization
 
             context.Services.AddTransient<Data.ILinkService, Data.LinkService>();
             context.Services.AddTransient<Data.IPageSearcher, Data.PageSearcher>();
+            context.Services.AddTransient<Data.ISampleGetter, Data.SampleGetter>();
         }
 
         public void Initialize(InitializationEngine context)
