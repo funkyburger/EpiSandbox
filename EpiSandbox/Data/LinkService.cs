@@ -27,7 +27,8 @@ namespace EpiSandbox.Data
             var result = new Dictionary<LinkModel, IEnumerable<LinkModel>>();
 
             var mainNodes = _contentRepository.GetChildren<NodePage>(startpage);
-            var ancestors = _contentRepository.GetAncestors(currentPage.ContentLink);
+            var ancestors = currentPage != null ? _contentRepository.GetAncestors(currentPage.ContentLink)
+                : new IContent[] { };
 
             foreach (var node in mainNodes)
             {
@@ -51,7 +52,7 @@ namespace EpiSandbox.Data
                 Label = pageData.Name,
                 Link = _urlResolver.GetUrl(pageData.ContentLink),
                 Active = ancestors.Any(a => a.ContentGuid == pageData.ContentGuid)
-                    || pageData.ContentGuid == currentPage.ContentGuid
+                    || (currentPage != null && pageData.ContentGuid == currentPage.ContentGuid)
             };
         }
     }

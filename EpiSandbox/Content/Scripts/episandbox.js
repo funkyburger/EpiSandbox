@@ -1,15 +1,10 @@
-﻿//console.log('episandbox.js');
-
-function tryLogin() {
-    console.log('tryLogin()');
-
+﻿function tryLogin() {
     var data = {
         login: $('#tbLoginLogin').val(),
         password: $('#tbLoginPassword').val()
     };
 
     $.post("/login", data, function (response) {
-        console.log("success");
         if (response.success) {
             location.reload(true);
         } else {
@@ -19,15 +14,12 @@ function tryLogin() {
         }
     })
         .fail(function () {
-            console.log("error");
             $('#loginErrorMessage').html('Error occured during login');
             $('#loginErrorMessage').show();
         });
 }
 
 function trySignIn() {
-    console.log('trySignIn()');
-
     var data = {
         login: $('#tbSigninLogin').val(),
         email: $('#tbSigninEmail').val(),
@@ -36,7 +28,6 @@ function trySignIn() {
     };
 
     $.post("/register", data, function (response) {
-        console.log("success");
         if (response.success) {
             location.reload(true);
         } else {
@@ -45,20 +36,61 @@ function trySignIn() {
         }
     })
         .fail(function () {
-            console.log("error");
             $('#signinErrorMessage').html('Error occured during login');
             $('#signinErrorMessage').show();
         });
 }
 
 function logoff() {
-    console.log('logoff()');
-
     $.post("/logoff", function (response) {
     })
         .always(function () {
             location.reload(true);
         });
+}
+
+function onSearchBoxTyping() {
+    var queryString = $('#searchField').val();
+
+    if (queryString.length > 3) {
+        $.get("api/search/?query=" + queryString, displaySearchSuggestions)
+            .fail(function () {
+                console.log("An error occured during search.");
+                $('#searchSuggestion').hide();
+            });
+    }
+    else {
+        $('#searchSuggestion').hide();
+    }
+}
+
+function appendSearchSuggestion(searchHit) {
+    console.log('appendSearchSuggestion');
+
+    var tr = $("<tr/>");
+    var td = $("<td/>");
+    var a = $("<a/>", { "href": searchHit.Link });
+    var div = $("<div/>");
+    div.html(searchHit.Headline);
+    div.appendTo(a);
+    a.appendTo(td);
+    td.appendTo(tr);
+    tr.appendTo($('#searchSuggestion > tbody'));
+}
+
+function displaySearchSuggestions(results) {
+    $('#searchSuggestion > tbody > tr').remove();
+
+    if (results.length > 0) {
+        for (var i = 0; i < results.length; i++) {
+            appendSearchSuggestion(results[i]);
+        }
+
+        $('#searchSuggestion').show();
+    }
+    else {
+        $('#searchSuggestion').hide();
+    }
 }
 
 // navbar transition js
@@ -82,29 +114,19 @@ $(document).ready(function () {
 
 // navbar dropdowns on mouse hover
 $(window).on("load resize", function () {
-    console.log("load resize");
-
     var dropdowns = $(".dropdown");
     var dropdownToggles = $(".dropdown-toggle");
     var dropdownMenus = $(".dropdown-menu");
 
     if (this.matchMedia("(min-width: 768px)").matches) {
-        console.log("(min-width: 768px)");
-
-        console.log(dropdowns.length);
-
         dropdowns.hover(
             function () {
-                console.log("hover in");
-
                 const $this = $(this);
                 $this.addClass("show");
                 $this.find(dropdownToggles).attr("aria-expanded", "true");
                 $this.find(dropdownMenus).addClass("show");
             },
             function () {
-                console.log("hover out");
-
                 const $this = $(this);
                 $this.removeClass("show");
                 $this.find(dropdownToggles).attr("aria-expanded", "false");
