@@ -5,10 +5,27 @@ $(() => {
     var searchButton = $('#btnSearch');
 
     searchButton.mouseup(eventObject => {
+        console.log('searchButton.mouseup');
+
         var query = $('#searchField').val();
 
         if (query.length > 0) {
             window.location.href = "/search?q=" + query;
+        }
+    });
+
+    var searchField = $('#searchField');
+    searchField.keypress(eventObject => {
+        console.log('searchField.keypress');
+
+        if (eventObject.keyCode == 13) {
+            eventObject.preventDefault();
+
+            var query = $('#searchField').val();
+
+            if (query.length > 0) {
+                window.location.href = "/search?q=" + query;
+            }
         }
     });
 
