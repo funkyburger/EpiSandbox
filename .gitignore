@@ -12,3 +12,6 @@
 /EpiSandbox/Content/Scripts/typescripts.js
 /EpiSandbox.UnitTests/obj
 /EpiSandbox.UnitTests/bin
+/EpiSandbox.UnitTests/App_Data/EPiServerDB_b3637ddc.mdf
+/EpiSandbox.UnitTests/modules/_protected
+/EpiSandbox.UnitTests/App.config
