@@ -26,7 +26,7 @@ namespace EpiSandbox.Data
             var startpage = ContentReference.StartPage;
             var result = new Dictionary<LinkModel, IEnumerable<LinkModel>>();
 
-            var mainNodes = _contentRepository.GetChildren<NodePage>(startpage);
+            var mainNodes = _contentRepository.GetChildren<NodePage>(startpage).Where(p => p.VisibleInMenu);
             var ancestors = currentPage != null ? _contentRepository.GetAncestors(currentPage.ContentLink)
                 : new IContent[] { };
 
