@@ -46,7 +46,7 @@
     <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
     <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
     <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
-    <TypeScriptOutFile>Content\Scripts\typescripts.js</TypeScriptOutFile>
+    <TypeScriptOutFile>Content\Scripts\episandbox.js</TypeScriptOutFile>
     <TypeScriptOutDir />
     <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
     <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
@@ -348,7 +348,6 @@
     <Content Include="Content\Scripts\bootstrap\bootstrap.bundle.min.js" />
     <Content Include="Content\Scripts\bootstrap\bootstrap.js" />
     <Content Include="Content\Scripts\bootstrap\bootstrap.min.js" />
-    <Content Include="Content\Scripts\episandbox.js" />
     <Content Include="Content\Scripts\index.js.flow" />
     <Content Include="Content\Scripts\bootstrap\bootstrap.min.js.map" />
     <Content Include="Content\Scripts\bootstrap\bootstrap.js.map" />
@@ -471,12 +470,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Content\Scripts\episandbox.ts" />
     <TypeScriptCompile Include="Content\Scripts\es6-promise\es6-promise.d.ts" />
     <TypeScriptCompile Include="Content\Scripts\jquery\jquery.d.ts" />
     <TypeScriptCompile Include="Content\Scripts\index.d.ts" />
     <TypeScriptCompile Include="Content\Scripts\misc\extensions.ts" />
     <TypeScriptCompile Include="Content\Scripts\misc\KeyValuePair.ts" />
-    <TypeScriptCompile Include="Content\Scripts\search.tsx" />
+    <TypeScriptCompile Include="Content\Scripts\Navbar\LoginHelper.ts" />
+    <TypeScriptCompile Include="Content\Scripts\Navbar\NavbarHelper.ts" />
+    <TypeScriptCompile Include="Content\Scripts\Navbar\SearchSuggestionHelper.ts" />
     <TypeScriptCompile Include="Content\Scripts\Search\SearchResult.ts" />
     <TypeScriptCompile Include="Content\Scripts\Search\SearchResultDisplayer.ts" />
   </ItemGroup>
