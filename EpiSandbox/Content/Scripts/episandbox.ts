@@ -11,12 +11,54 @@ $(() => {
         loginHelper.tryLogin();
     });
 
+    var tbLoginLogin = $('#tbLoginLogin');
+    tbLoginLogin.keypress(eventObject => {
+        if (eventObject.keyCode == 13) {
+            loginHelper.tryLogin();
+        }
+    });
+
+    var tbLoginPassword = $('#tbLoginPassword');
+    tbLoginPassword.keypress(eventObject => {
+        if (eventObject.keyCode == 13) {
+            loginHelper.tryLogin();
+        }
+    });
+
     var signinButton = $('#signinButton');
     signinButton.mouseup(eventObject => {
         loginHelper.trySignIn();
     });
 
-    var logoffLink = $('#signinButton');
+    var tbSigninLogin = $('#tbSigninLogin');
+    tbSigninLogin.keypress(eventObject => {
+        if (eventObject.keyCode == 13) {
+            loginHelper.trySignIn();
+        }
+    });
+
+    var tbSigninEmail = $('#tbSigninEmail');
+    tbSigninEmail.keypress(eventObject => {
+        if (eventObject.keyCode == 13) {
+            loginHelper.trySignIn();
+        }
+    });
+
+    var tbSigninPassword = $('#tbSigninPassword');
+    tbSigninPassword.keypress(eventObject => {
+        if (eventObject.keyCode == 13) {
+            loginHelper.trySignIn();
+        }
+    });
+
+    var tbSigninConfirmPassword = $('#tbSigninConfirmPassword');
+    tbSigninConfirmPassword.keypress(eventObject => {
+        if (eventObject.keyCode == 13) {
+            loginHelper.trySignIn();
+        }
+    });
+
+    var logoffLink = $('#logoffLink');
     logoffLink.mouseup(eventObject => {
         loginHelper.logoff();
     });
@@ -107,3 +149,7 @@ $(window).on("load resize", function () {
         dropdowns.off("mouseenter mouseleave");
     }
 });
+
+function blah(): void {
+
+}
