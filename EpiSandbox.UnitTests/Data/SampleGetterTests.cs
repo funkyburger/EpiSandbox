@@ -4,6 +4,7 @@ using EPiServer.Core;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Shouldly;
 using System;
+using System.Collections.Generic;
 
 namespace EpiSandbox.UnitTests.Data
 {
@@ -62,7 +63,7 @@ namespace EpiSandbox.UnitTests.Data
                 .ShouldBe("Toto <strong>titi</strong>  tata");
         }
 
-        private StandardContentPage GenerateTestPage()
+        private TestPage GenerateTestPage()
         {
             return GenerateTestPage("<div id=\"lipsum\">"
                     + "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis viverra nulla. Duis viverra, orci et faucibus suscipit, nulla odio vestibulum orci, a tempor odio libero et augue. Aenean aliquam feugiat suscipit. Nunc ultricies tortor vel augue viverra, sit amet tincidunt lectus faucibus. Aliquam vel aliquet purus. Nulla sed suscipit lorem. Nulla aliquam neque et massa dictum rhoncus non id enim. Suspendisse potenti. Cras dui ex, dapibus eu diam nec, convallis volutpat felis. Morbi convallis leo at diam placerat, vitae rutrum mauris dictum.</p>"
@@ -73,7 +74,7 @@ namespace EpiSandbox.UnitTests.Data
                     + "</div>");
         }
 
-        private StandardContentPage GenerateBigChunkTestPage()
+        private TestPage GenerateBigChunkTestPage()
         {
             var bigChunkOfTextPage = GenerateTestPage();
             bigChunkOfTextPage.MainBody = new XhtmlString(bigChunkOfTextPage.MainBody.ToHtmlString().Replace("<p>", "").Replace("</p>", ""));
@@ -81,13 +82,18 @@ namespace EpiSandbox.UnitTests.Data
             return bigChunkOfTextPage;
         }
 
-        private StandardContentPage GenerateTestPage(string content)
+        private TestPage GenerateTestPage(string content)
         {
-            return new StandardContentPage()
+            return new TestPage()
             {
                 Heading = new XhtmlString("Lorem ipsum"),
                 MainBody = new XhtmlString(content)
             };
+        }
+
+        private class TestPage : StandardContentPage, IContentPage
+        {
+            public IEnumerable<XhtmlString> Content => new XhtmlString[] { MainBody };
         }
     }
 }

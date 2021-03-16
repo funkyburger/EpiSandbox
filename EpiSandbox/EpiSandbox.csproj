@@ -289,6 +289,7 @@
     <Compile Include="Controllers\NavbarController.cs" />
     <Compile Include="Controllers\SearchApiController.cs" />
     <Compile Include="Controllers\UtilityController.cs" />
+    <Compile Include="Data\IContentPage.cs" />
     <Compile Include="Data\ILinkService.cs" />
     <Compile Include="Data\IPageSearcher.cs" />
     <Compile Include="Data\ISampleGetter.cs" />
