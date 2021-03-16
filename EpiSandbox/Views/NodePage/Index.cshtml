@@ -6,9 +6,5 @@
 @{ Layout = "~/Views/Shared/_defaultLayout.cshtml"; }
 
 <div>
-    Node
+    @Html.PropertyFor(m => m.MainBody)
 </div>
-
-@*<div>
-      @Html.PropertyFor(m => m.MainBody)
-    </div>*@
