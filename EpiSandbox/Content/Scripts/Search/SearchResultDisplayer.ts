@@ -42,7 +42,7 @@ class SearchResultDisplayer {
         cell.addClass("col-md-10");
         cell.appendTo(mainDiv);
 
-        var a = $("<a/>", { "href": "#" });
+        var a = $("<a/>", { "href": searchResult.Link });
         a.appendTo(cell);
 
         var headline = $("<div/>");
