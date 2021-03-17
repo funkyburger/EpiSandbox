@@ -294,6 +294,10 @@
     <Compile Include="Data\ISampleGetter.cs" />
     <Compile Include="Data\LinkService.cs" />
     <Compile Include="Data\PageSearcher.cs" />
+    <Compile Include="Data\PageSearch\IQueryParser.cs" />
+    <Compile Include="Data\PageSearch\Query.cs" />
+    <Compile Include="Data\PageSearch\QueryParser.cs" />
+    <Compile Include="Data\PageSearch\Result.cs" />
     <Compile Include="Data\SampleGetter.cs" />
     <Compile Include="Data\UserRoles.cs" />
     <Compile Include="Extensions\StringExtensions.cs" />
