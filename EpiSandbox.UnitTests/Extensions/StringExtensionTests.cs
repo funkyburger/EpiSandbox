@@ -14,6 +14,7 @@ namespace EpiSandbox.UnitTests.Extensions
     {
         //Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis viverra nulla. Duis viverra, orci et faucibus suscipit, nulla odio vestibulum orci, a tempor odio libero et augue. Aenean aliquam feugiat suscipit. Nunc ultricies tortor vel augue viverra, sit amet tincidunt lectus faucibus. Aliquam vel aliquet purus. Nulla sed suscipit lorem. Nulla aliquam neque et massa dictum rhoncus non id enim. Suspendisse potenti. Cras dui ex, dapibus eu diam nec, convallis volutpat felis. Morbi convallis leo at diam placerat, vitae rutrum mauris dictum.
 
+        #region ContainsAllOrSomeWords
         [TestMethod]
         public void ContainsAllOrSomeWordsReturnsTrueIfOneWordIsFound()
         {
@@ -34,7 +35,9 @@ namespace EpiSandbox.UnitTests.Extensions
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit.".ContainsAllOrSomeWords("lorem")
                 .ShouldBeTrue();
         }
+        #endregion
 
+        #region HtmlBoldAllOrSomeWords
         [TestMethod]
         public void HtmlBoldAllOrSomeWordsBoldsLooseWords()
         {
@@ -66,7 +69,49 @@ namespace EpiSandbox.UnitTests.Extensions
                 .HtmlBoldAllOrSomeWords("amet")
                 .ShouldBe("Lorem ipsum dolor sit <strong>amet</strong>, consectetur adipiscing elit. Morbi quis viverra nulla.");
         }
+        #endregion
 
+        [TestMethod]
+        public void HtmlBoldWordsDoesItsJob()
+        {
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis viverra nulla. Duis viverra, orci et faucibus suscipit, nulla odio vestibulum orci, a tempor odio libero et augue."
+                .HtmlBoldWords(new string[] { "viverra nulla", "vestibulum orci" })
+                .ShouldBe("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis <strong>viverra nulla</strong>. Duis viverra, orci et faucibus suscipit, nulla odio <strong>vestibulum orci</strong>, a tempor odio libero et augue.");
+        }
+
+        [TestMethod]
+        public void HtmlBoldWordsResetsPreviousBold()
+        {
+            "Lorem ipsum dolor sit amet, <strong>consectetur adipiscing</strong> elit. Morbi quis viverra nulla. Duis viverra, orci et faucibus suscipit, nulla odio vestibulum orci, a tempor odio libero et augue."
+                .HtmlBoldWords(new string[] { "viverra nulla", "vestibulum orci" })
+                .ShouldBe("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis <strong>viverra nulla</strong>. Duis viverra, orci et faucibus suscipit, nulla odio <strong>vestibulum orci</strong>, a tempor odio libero et augue.");
+        }
+
+        [TestMethod]
+        public void HtmlBoldWordsKeepsCase()
+        {
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis viverra nulla. Duis viverra, orci et faucibus suscipit, nulla odio vestibulum orci, a tempor odio libero et augue."
+                .HtmlBoldWords(new string[] { "Duis viverra", "vestibulum orci" })
+                .ShouldBe("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis viverra nulla. <strong>Duis viverra</strong>, orci et faucibus suscipit, nulla odio <strong>vestibulum orci</strong>, a tempor odio libero et augue.");
+        }
+
+        [TestMethod]
+        public void HtmlBoldWordsIsCaseInsensitive()
+        {
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis viverra nulla. Duis viverra, orci et faucibus suscipit, nulla odio vestibulum orci, a tempor odio libero et augue."
+                .HtmlBoldWords(new string[] { "lorem ipsum" })
+                .ShouldBe("<strong>Lorem ipsum</strong> dolor sit amet, consectetur adipiscing elit. Morbi quis viverra nulla. Duis viverra, orci et faucibus suscipit, nulla odio vestibulum orci, a tempor odio libero et augue.");
+        }
+
+        [TestMethod]
+        public void HtmlBoldWordsSkipsNonWords()
+        {
+            "Lorem ipsum dolor sit,   amet, consectetur adipiscing elit. Morbi quis viverra nulla. Duis viverra, orci et faucibus suscipit, nulla odio vestibulum orci, a tempor odio libero et augue."
+                .HtmlBoldWords(new string[] { "sit amet" })
+                .ShouldBe("Lorem ipsum dolor <strong>sit,   amet</strong>, consectetur adipiscing elit. Morbi quis viverra nulla. Duis viverra, orci et faucibus suscipit, nulla odio vestibulum orci, a tempor odio libero et augue.");
+        }
+
+        #region IndexesOfAll
         [TestMethod]
         public void CapLengthCutsOffBetweenTwoWords()
         {
@@ -110,5 +155,6 @@ namespace EpiSandbox.UnitTests.Extensions
                 .ToArray()
                 .ShouldBe(new int[] { });
         }
+        #endregion
     }
 }
