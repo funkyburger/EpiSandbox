@@ -1,7 +1,6 @@
 ﻿using EpiSandbox.Data;
 using EpiSandbox.Extensions;
 using EpiSandbox.Models.Pages;
-using EPiServer.Core;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Shouldly;
 using System;

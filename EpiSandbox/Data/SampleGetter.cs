@@ -1,7 +1,6 @@
 ﻿using EpiSandbox.Data.PageSearch;
 using EpiSandbox.Extensions;
 using EpiSandbox.Models.Pages;
-using EPiServer.Core;
 using HtmlAgilityPack;
 using System.Linq;
 
@@ -27,11 +26,6 @@ namespace EpiSandbox.Data
 
             // TODO test
             return page.Content.FirstOrDefault()?.CapLength(512);
-        }
-
-        public string GetSample(PageData page, string query)
-        {
-            throw new System.NotImplementedException();
         }
     }
 }
