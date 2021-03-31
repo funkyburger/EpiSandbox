@@ -1,4 +1,5 @@
-﻿using EpiSandbox.Extensions;
+﻿using EpiSandbox.Data.PageSearch;
+using EpiSandbox.Extensions;
 using EpiSandbox.Models.Pages;
 using EPiServer.Core;
 using HtmlAgilityPack;
@@ -8,36 +9,29 @@ namespace EpiSandbox.Data
 {
     public class SampleGetter : ISampleGetter
     {
-        public string GetSample(PageData page, string query)
+        public string GetSample(Result page, Query query)
         {
-            var standardContentPage = page as StandardContentPage;
-            if(standardContentPage != null)
+            if(page.Content == null)
             {
-                return GetSample(standardContentPage, query);
+                // TODO log warning
+                return null;
             }
-
-            return "<i>Could not retrieve sample.</i>";
-        }
-
-        public string GetSample(StandardContentPage page, string query)
-        {
-            return ExtractRelevantText(page, query).HtmlBoldAllOrSomeWords(query);
-        }
-
-        private string ExtractRelevantText(StandardContentPage page, string query)
-        {
-            HtmlDocument resultat = new HtmlDocument();
-            resultat.LoadHtml(page.MainBody.ToHtmlString());
-
-            foreach(var paragraph in resultat.DocumentNode.Descendants("p").Select(p => p.InnerText))
+            
+            foreach(var content in page.Content)
             {
-                if (paragraph.ContainsAllOrSomeWords(query))
+                if(query.Fragments.Any(f => content.ContainsAllOrSomeWords(f)))
                 {
-                    return paragraph.CapLength(512);
+                    return content.CapLength(512).HtmlBoldWords(query.Fragments);
                 }
             }
 
-            return resultat.DocumentNode.InnerText.CapLength(512);
+            // TODO test
+            return page.Content.FirstOrDefault()?.CapLength(512);
+        }
+
+        public string GetSample(PageData page, string query)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

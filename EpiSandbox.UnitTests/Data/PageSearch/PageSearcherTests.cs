@@ -75,6 +75,25 @@ namespace EpiSandbox.UnitTests.Data.PageSearch
                 });
         }
 
+        [TestMethod]
+        public void ImagesDontFollow()
+        {
+            var internalPageSearcher = new Mock<IInternalPageSearcher>();
+            internalPageSearcher.Setup(s => s.SearchPages(It.IsAny<string>(), It.IsAny<int>(), It.IsAny<int>()))
+                .Returns(new IContentPage[] {
+                    new TestContent("headline",
+                            "/link/to/page",
+                            "<div id=\"lipsum\"><p>Toto titi <img src=\"http://www.path.to/image.jpg>\"<img> tata</p></div>")
+                });
+
+            var queryParser = new Mock<IQueryParser>();
+
+            var pageSearcher = new PageSearcher(internalPageSearcher.Object, queryParser.Object);
+
+            var result = pageSearcher.SearchPages(new Query(), 0, 10).Single();
+            result.Content.Single().ShouldBe("Toto titi  tata");
+        }
+
         private class TestContent : IContentPage
         {
             public string Headline { get; set; }

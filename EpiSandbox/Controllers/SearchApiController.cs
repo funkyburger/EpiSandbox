@@ -12,11 +12,11 @@ namespace EpiSandbox.Controllers
 {
     public class SearchApiController : ApiController
     {
-        private readonly IInternalPageSearcher _pageSearcher;
+        private readonly IPageSearcher _pageSearcher;
         private readonly ISampleGetter _sampleGetter;
         private readonly IQueryParser _queryParser;
         
-        public SearchApiController(IInternalPageSearcher pageSearcher, ISampleGetter sampleGetter, IQueryParser queryParser)
+        public SearchApiController(IPageSearcher pageSearcher, ISampleGetter sampleGetter, IQueryParser queryParser)
         {
             _pageSearcher = pageSearcher;
             _sampleGetter = sampleGetter;
