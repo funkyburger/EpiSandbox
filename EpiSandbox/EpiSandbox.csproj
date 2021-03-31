@@ -289,12 +289,15 @@
     <Compile Include="Controllers\NavbarController.cs" />
     <Compile Include="Controllers\SearchApiController.cs" />
     <Compile Include="Controllers\UtilityController.cs" />
+    <Compile Include="Data\IContentPage.cs" />
     <Compile Include="Data\ILinkService.cs" />
-    <Compile Include="Data\IPageSearcher.cs" />
+    <Compile Include="Data\PageSearch\IInternalPageSearcher.cs" />
     <Compile Include="Data\ISampleGetter.cs" />
     <Compile Include="Data\LinkService.cs" />
-    <Compile Include="Data\PageSearcher.cs" />
+    <Compile Include="Data\PageSearch\InternalPageSearcher.cs" />
+    <Compile Include="Data\PageSearch\IPageSearcher.cs" />
     <Compile Include="Data\PageSearch\IQueryParser.cs" />
+    <Compile Include="Data\PageSearch\PageSearcher.cs" />
     <Compile Include="Data\PageSearch\Query.cs" />
     <Compile Include="Data\PageSearch\QueryParser.cs" />
     <Compile Include="Data\PageSearch\Result.cs" />

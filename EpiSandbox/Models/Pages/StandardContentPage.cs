@@ -9,6 +9,10 @@ namespace EpiSandbox.Models.Pages
 {
     public class StandardContentPage : PageData
     {
+        public string Headline => Name;
+
+        public string Link => LinkURL;
+
         [CultureSpecific]
         [Display(
             Name = "Heading",

@@ -10,8 +10,6 @@ namespace EpiSandbox.Data.PageSearch
 {
     public interface IInternalPageSearcher
     {
-        //[Obsolete]
-        //IEnumerable<SearchHit> SearchPages(string query, int pagingNumber, int pagingSize);
-        IEnumerable<Result> SearchPages(Query query, int pagingNumber, int pagingSize);
+        IEnumerable<IContentPage> SearchPages(string query, int pagingNumber, int pagingSize);
     }
 }

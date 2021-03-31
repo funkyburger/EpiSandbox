@@ -10,8 +10,8 @@ using System.ComponentModel.DataAnnotations;
 namespace EpiSandbox.Models.Pages
 {
     [ContentType(DisplayName = "NodePage", GUID = "d2f6d522-c35c-43a0-9142-112d1b436541", Description = "")]
-    public class NodePage : StandardContentPage, IHasContent
+    public class NodePage : StandardContentPage, IContentPage
     {
-        public IEnumerable<XhtmlString> Content => new XhtmlString[] { MainBody };
+        public IEnumerable<string> Content => new string[] { MainBody.ToHtmlString() };
     }
 }

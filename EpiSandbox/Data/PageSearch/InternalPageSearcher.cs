@@ -11,25 +11,14 @@ namespace EpiSandbox.Data.PageSearch
 {
     public class InternalPageSearcher : IInternalPageSearcher
     {
-        private readonly IQueryParser _queryParser;
-
-        public InternalPageSearcher(IQueryParser queryParser)
+        public IEnumerable<IContentPage> SearchPages(string query, int pagingNumber, int pagingSize)
         {
-            _queryParser = queryParser;
-        }
-
-        public IEnumerable<Result> SearchPages(Query query, int pagingNumber, int pagingSize)
-        {
-            foreach(var pageData in FindPages(_queryParser.Deparse(query), pagingNumber, pagingSize))
+            foreach (var pageData in FindPages(query, pagingNumber, pagingSize))
             {
-                var hasContent = pageData as IHasContent;
-                if(hasContent != null)
+                var hasContent = pageData as IContentPage;
+                if (hasContent != null)
                 {
-                    yield return new Result() {
-                        Headline = pageData.Name,
-                        Link = pageData.LinkURL,
-                        Content = hasContent.Content.Select(c => c.ToString())
-                    };
+                    yield return hasContent;
                 }
             }
         }
