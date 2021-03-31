@@ -1,4 +1,5 @@
-﻿using EpiSandbox.Models;
+﻿using EpiSandbox.Data.PageSearch;
+using EpiSandbox.Models;
 using EPiServer.Core;
 using EPiServer.Search;
 using EPiServer.Search.Queries.Lucene;
@@ -6,27 +7,31 @@ using EPiServer.ServiceLocation;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace EpiSandbox.Data
+namespace EpiSandbox.Data.PageSearch
 {
     public class PageSearcher : IPageSearcher
     {
-        private readonly ISampleGetter _sampleGetter;
+        private readonly IQueryParser _queryParser;
 
-        public PageSearcher(ISampleGetter sampleGetter)
+        public PageSearcher(IQueryParser queryParser)
         {
-            _sampleGetter = sampleGetter;
+            _queryParser = queryParser;
         }
 
-        public IEnumerable<SearchHit> SearchPages(string query, int pagingNumber, int pagingSize)
+        public IEnumerable<Result> SearchPages(Query query, int pagingNumber, int pagingSize)
         {
-            var pageDatas = FindPages(query, pagingNumber, pagingSize).ToArray();
-
-            return pageDatas.Select(p => new SearchHit()
+            foreach(var pageData in FindPages(_queryParser.Deparse(query), pagingNumber, pagingSize))
             {
-                Headline = p.Name,
-                Link = p.LinkURL,
-                Sample = _sampleGetter.GetSample(p, query)
-            });
+                var hasContent = pageData as IHasContent;
+                if(hasContent != null)
+                {
+                    yield return new Result() {
+                        Headline = pageData.Name,
+                        Link = pageData.LinkURL,
+                        Content = hasContent.Content.Select(c => c.ToString())
+                    };
+                }
+            }
         }
 
         private IEnumerable<PageData> FindPages(string searchQuery, int pagingNumber, int pagingSize)
