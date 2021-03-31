@@ -9,5 +9,6 @@ namespace EpiSandbox.Data.PageSearch
     public interface IQueryParser
     {
         Query Parse(string query);
+        string Deparse(Query query);
     }
 }

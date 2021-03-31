@@ -65,5 +65,17 @@ namespace EpiSandbox.UnitTests.Data.PageSearch
             var query = parser.Parse("toto     titi");
             query.Fragments.ToArray().ShouldBe(new string[] { "toto", "titi" });
         }
+
+        [TestMethod]
+        public void QueriesAreDeparsed()
+        {
+            var parser = new QueryParser();
+            var query = new Query()
+            {
+                Fragments = new string[] { "lorem ipsum", "bla bla bla", "bidule truc muche" }
+            };
+
+            parser.Deparse(query).ShouldBe("\"lorem ipsum\" \"bla bla bla\" \"bidule truc muche\"");
+        }
     }
 }

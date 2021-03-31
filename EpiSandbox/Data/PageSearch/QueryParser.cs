@@ -17,6 +17,25 @@ namespace EpiSandbox.Data.PageSearch
             };
         }
 
+        public string Deparse(Query query)
+        {
+            var builder = new StringBuilder();
+
+            foreach (var fragment in query.Fragments)
+            {
+                if(builder.Length < 1)
+                {
+                    builder.Append($"\"{fragment}\"");
+                }
+                else
+                {
+                    builder.Append($" \"{fragment}\"");
+                }
+            }
+
+            return builder.ToString();
+        }
+
         private IList<string> Extract(string query)
         {
             var result = new List<string>();
