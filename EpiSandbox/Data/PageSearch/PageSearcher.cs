@@ -32,6 +32,8 @@ namespace EpiSandbox.Data.PageSearch
             }
 
             return new Result() {
+                Headline = contentPage.Headline,
+                Link = contentPage.Link,
                 Content = convertedContent
             };
         }
