@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace EpiSandbox.Data.PageSearch
 {
-    public interface IPageSearcher
+    public interface IInternalPageSearcher
     {
         //[Obsolete]
         //IEnumerable<SearchHit> SearchPages(string query, int pagingNumber, int pagingSize);

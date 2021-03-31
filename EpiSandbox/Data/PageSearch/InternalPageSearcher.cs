@@ -9,11 +9,11 @@ using System.Linq;
 
 namespace EpiSandbox.Data.PageSearch
 {
-    public class PageSearcher : IPageSearcher
+    public class InternalPageSearcher : IInternalPageSearcher
     {
         private readonly IQueryParser _queryParser;
 
-        public PageSearcher(IQueryParser queryParser)
+        public InternalPageSearcher(IQueryParser queryParser)
         {
             _queryParser = queryParser;
         }
